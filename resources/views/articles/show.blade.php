@@ -20,10 +20,15 @@
                     <div class="">{{$article->created_at->diffForHumans()}} by user {{$article->id}}</div>
                     <hr>
                     {{$article->body}}
+
+                    <hr>
+                    <p>Written by: {{$article->user->name}} <span class="text-right"><a href="">Comment</a></span></p>
+
                 </div>
-                <hr>
-                <p>Written by: {{$article->user->name}} <span class="text-right"><a href="">Comment</a></span></p>
+
             </div>
         </div>
+        @include('comments.frame')
+
     </div>
 @endsection
