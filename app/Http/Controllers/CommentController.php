@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Comment;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return view('comments.index');
     }
 
     /**
@@ -33,9 +34,13 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Article $article)
     {
-        //
+//        used to take Request $request as param. using post now
+        $this->validate(request(), ['body'=> 'required|min:2']);
+        $article->addComment(request('body'));
+        return back();
+
     }
 
     /**
