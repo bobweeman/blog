@@ -18,4 +18,10 @@ class Article extends Model
         return $this->belongsTo(User::class);
 //        return $this->belongsTo('\App\User','id','user_id');
     }
+    public function comment(){
+        return $this->hasMany(Article::class);
+    }
+    public function addComment($body){
+        $this->comment()->create(compact('body'));
+    }
 }
