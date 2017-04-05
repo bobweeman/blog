@@ -1,0 +1,14 @@
+.comment{
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+.comment-body{
+    font-size: large;
+    padding: 10px;
+}
+.comment-date{
+
+}
+.comment-user{
+    font-size: x-large;
+}
