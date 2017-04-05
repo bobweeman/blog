@@ -15,21 +15,22 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('article_id');
+            $table->text('body');
+            $table->integer('user_id')->unsigned();
+            $table->integer('article_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('article_id')
-                ->references('id')
-                ->on('article')
-                ->onDelete('cascade');
+//            $table->engine = 'InnoDB';
+//            $table->foreign('user_id')
+//                ->references('id')
+//                ->on('users')
+//                ->onDelete('cascade');
+//            $table->foreign('article_id')
+//                ->references('id')
+//                ->on('article')
+//                ->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *
