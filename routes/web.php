@@ -24,3 +24,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('article','ArticleController');
 });
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::post('article/{article}/comment', 'CommentController@store');
+//    Route::resource('comment','CommentController');
+});
