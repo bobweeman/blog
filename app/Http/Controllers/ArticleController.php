@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Comment;
+use App\Http\Controllers\CommentController;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,13 +45,13 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
       $data= new Article();
-        $data->user_id =Auth::user()->id;
-        $data->title =$request->title;
-        $data->body =$request->body;
-        $data->description =$request->description;
-        $data->save();
-        \Session::flash('success','Article created successfully');
-        return redirect(route('article.index'));
+      $data->user_id =Auth::user()->id;
+      $data->title =$request->title;
+      $data->body =$request->body;
+      $data->description =$request->description;
+      $data->save();
+      \Session::flash('success','Article created successfully');
+      return redirect(route('article.index'));
     }
 
     /**
@@ -61,8 +63,10 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+        $comments = new CommentController();
+        $comments= $comments->show($id);
 
-        return view('articles.show', compact('article'));
+        return view('articles.show', compact('article', 'comments'));
     }
 
     /**
