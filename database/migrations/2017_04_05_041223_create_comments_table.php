@@ -18,7 +18,9 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->integer('user_id')->unsigned();
             $table->integer('article_id')->unsigned();
+            $table->string('user');
             $table->timestamps();
+
 
 //            $table->engine = 'InnoDB';
 //            $table->foreign('user_id')
