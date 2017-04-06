@@ -8,7 +8,7 @@
         <div class="portlet">
             <div class="portlet-heading bg-primary">
                 <h3 class="portlet-title">
-                    {{$article->title}}
+                    <a href="/article/{{$article->id}}">{{$article->title}}</a>
                 </h3>
                 <div class="portlet-widgets">
                     <a href="javascript:;" data-toggle="reload"><i class="zmdi zmdi-refresh"></i></a>
@@ -19,15 +19,15 @@
             </div>
             <div id="bg-primary1" class="panel-collapse collapse in">
                 <div class="portlet-body">
-                        {{$article->body}}
+                        {{$article->description}}
                 </div>
                 <hr>
-
-                <p>Written by: {{$article->user->name}}</p>
+                <p>Written by: {{$article->user->name}} <span class="text-right"><a href="">Comment</a></span></p>
             </div>
         </div>
+
     </div>
-@endforeach
+        @endforeach
     @endif
 
 
