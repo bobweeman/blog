@@ -62,7 +62,10 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::find($id);
+//        $articles = Article::with('User')->where('id', '=', $id )->get();
+        $article = Article::with('User')->where('id', '=', $id )->get();
+        $article = $article[0];
+
         $comments = new CommentController();
         $comments= $comments->show($id);
 
