@@ -102,6 +102,13 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $user_id = Auth::id();
+        $comment = Comment::find($id);
+        if($user_id == $comment->user_id){
+            $comment->delete();
+            \Session::flash('success','comment deleted successfully');
+            return back();
+        }
+        else return back();
     }
 }
