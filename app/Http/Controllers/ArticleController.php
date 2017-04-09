@@ -98,8 +98,17 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $user_id = Auth::id();
+        $article = Article::find($id);
+        if($user_id == $article->user_id){
+            $article->delete();
+            \Session::flash('success','Article deleted successfully');
+            return view('myArticles.index');
+        }
+        else return back();
+
+
     }
 }
