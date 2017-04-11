@@ -11,7 +11,7 @@
                 <div class="portlet-widgets">
                     <a href="javascript:;" data-toggle="reload"><i class="zmdi zmdi-refresh"></i></a>
                     <a data-toggle="collapse" data-parent="#accordion1" href="ui-cards.html#bg-primary1"><i class="zmdi zmdi-minus"></i></a>
-                    <a href="ui-cards.html#" data-toggle="remove"><i class="zmdi zmdi-close"></i></a>
+                    {{--<a href="ui-cards.html#" data-toggle="remove"><i class="zmdi zmdi-close"></i></a>--}}
                 </div>
                 <div class="clearfix"></div>
             </div>
