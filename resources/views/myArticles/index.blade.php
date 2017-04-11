@@ -13,7 +13,7 @@
                         <div class="portlet-widgets">
                             <a href="javascript:;" data-toggle="reload"><i class="zmdi zmdi-refresh"></i></a>
                             <a data-toggle="collapse" data-parent="#accordion1" href="ui-cards.html#bg-primary1"><i class="zmdi zmdi-minus"></i></a>
-                            <a href="ui-cards.html#" data-toggle="remove"><i class="zmdi zmdi-close"></i></a>
+                            {{--<a href="ui-cards.html#" data-toggle="remove"><i class="zmdi zmdi-close"></i></a>--}}
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -26,7 +26,7 @@
                             <hr>
                             <p>
                                 <span class="pull-right">
-                                    <a href="" >Comment</a>
+                                    <a href="/article/{{$article->id}}/edit">Edit</a>
                                     <form action="/article/{{$article->id}}" method="POST">
                                         {{csrf_field()}}
                                         {{method_field('DELETE')}}
